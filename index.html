@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Desafio 2</title>
+  </head>
+  <body>
+    <div class="header">
+      <img
+        class="bootcamp-logo"
+        src="./img/bootcampLogo.png"
+        alt="Bootcamp Logo"
+      />
+      <h1 class="main-title">
+        Pesquisa de <span class="user">usuários.</span>
+      </h1>
+    </div>
+
+    <div class="container">
+      <div class="search-field">
+        <input type="text" id="search-input" />
+        <button type="button" class="waves-effect waves-light btn">
+          Buscar
+        </button>
+      </div>
+
+      <div class="row">
+        <div class="col s8">
+          <h6 class="subtitle">Usuário(os) encontrado(os)</h6>
+
+          <div class="users"></div>
+        </div>
+
+        <div class="col s4">
+          <h6 class="subtitle">Estatísticas</h6>
+
+          <div class="statistics">
+            <div class="statistics-field">
+              <label class="field-title">Sexo masculino: </label>
+              <span class="field-result" id="male-users">0</span>
+            </div>
+
+            <div class="statistics-field">
+              <label class="field-title">Sexo feminino: </label>
+              <span class="field-result" id="female-users">0</span>
+            </div>
+
+            <div class="statistics-field">
+              <label class="field-title">Soma das idades: </label>
+              <span class="field-result" id="age-sum">0</span>
+            </div>
+
+            <div class="statistics-field">
+              <label class="field-title">Média das idades: </label>
+              <span class="field-result" id="age-avg">0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>
