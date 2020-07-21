@@ -1,6 +1,7 @@
 'use strict';
 let searchInput = null;
 let searchBtn = null;
+let usersFound = null;
 
 let allUsers = [];
 let allSearchedUsers = [];
@@ -19,6 +20,9 @@ window.addEventListener('load', () => {
 
   searchBtn = document.querySelector('#search-btn');
   searchBtn.addEventListener('click', doSearchBtn);
+
+  usersFound = document.querySelector('#users-found');
+  usersFound.textContent = 0;
 
   loadData();
 });
@@ -51,10 +55,8 @@ function doSearchBtn() {
 
 function doSearch() {
   allSearchedUsers = allUsers.filter((user) => {
-    return user.name.toLowerCase().includes(searchInput.value);
+    return user.name.toLowerCase().includes(searchInput.value.toLowerCase());
   });
-
-  return nameToSearch;
 }
 
 function handleSearchBtn() {
@@ -93,7 +95,11 @@ function renderUsersList() {
 
   allSearchedUsers.forEach((user) => {
     let newUser = ` <li class='user'>
-                      <img class='user-picture' src='${user.picture}'/>
+                      <img 
+                        class='user-picture' 
+                        src='${user.picture}' 
+                        alt='${user.name}'
+                        title='${user.name}'/>
                       <p class='user-info'>${user.name}, ${user.age} anos</p>
                     </li>
                   `;
@@ -101,8 +107,10 @@ function renderUsersList() {
   });
 
   if (allSearchedUsers.length === 0) {
-    usersList.textContent = 'Nenhum usuário encontrado.';
+    usersList.textContent = '---';
   }
+
+  usersFound.textContent = allSearchedUsers.length;
 }
 
 function renderStatistics() {

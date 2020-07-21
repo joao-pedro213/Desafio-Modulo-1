@@ -60,10 +60,16 @@ input {
 
 .user-picture {
   border-radius: 50%;
+  border: 1.5px solid #4db6ac;
 }
 
 .user-info {
   margin-left: 15px;
+}
+
+#users-found {
+  font-size: 1.3rem;
+  color: #4db6ac;
 }
 
 /* statistics column */
