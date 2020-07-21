@@ -17,7 +17,7 @@ body {
   width: 150px;
 }
 
-.user {
+.user-title {
   color: #ffffff;
 }
 
@@ -42,6 +42,28 @@ input {
 .btn {
   margin-left: 20px;
   background-color: #4db6ac;
+}
+
+/* users column */
+.users {
+  padding: 15px;
+  border: 1px solid gray;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.user-picture {
+  border-radius: 50%;
+}
+
+.user-info {
+  margin-left: 15px;
 }
 
 /* statistics column */
