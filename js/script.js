@@ -1,7 +1,6 @@
 'use strict';
 let searchInput = null;
 let searchBtn = null;
-let nameToSearch = null;
 
 let allUsers = [];
 let allSearchedUsers = [];
@@ -51,19 +50,15 @@ function doSearchBtn() {
 }
 
 function doSearch() {
-  nameToSearch = searchInput.value;
-
   allSearchedUsers = allUsers.filter((user) => {
-    return user.name.toLowerCase().indexOf(nameToSearch.trim()) > -1;
+    return user.name.toLowerCase().includes(searchInput.value);
   });
 
   return nameToSearch;
 }
 
 function handleSearchBtn() {
-  nameToSearch = searchInput.value;
-
-  if (nameToSearch.length > 0) {
+  if (searchInput.value.length > 0) {
     searchBtn.removeAttribute('disabled');
     isBtnActive = true;
   } else {
