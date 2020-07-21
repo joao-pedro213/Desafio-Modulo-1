@@ -1,13 +1,7 @@
 'use strict';
-/* state variables */
 let searchInput = null;
 let searchBtn = null;
 let nameToSearch = null;
-
-// let maleUsers = null;
-// let femaleUsers = null;
-// let ageSum = null;
-// let ageAvg = null;
 
 let allUsers = [];
 let allSearchedUsers = [];
@@ -27,16 +21,6 @@ window.addEventListener('load', () => {
   searchBtn = document.querySelector('#search-btn');
   searchBtn.addEventListener('click', doSearchBtn);
 
-  // maleUsers = document.querySelector('#male-users');
-  // femaleUsers = document.querySelector('#female-users');
-  // ageSum = document.querySelector('#age-sum');
-  // ageAvg = document.querySelector('#age-avg');
-
-  // maleUsers.textContent = totalMaleUsers;
-  // femaleUsers.textContent = totalFemaleUsers;
-  // ageSum.textContent = totalAgeSum;
-  // ageAvg.textContent = totalAgeAvg;
-
   loadData();
 });
 
@@ -53,6 +37,30 @@ async function loadData() {
 }
 
 function doSearchInput(event) {
+  handleSearchBtn();
+
+  if (event.key === 'Enter' && isBtnActive) {
+    doSearch();
+    render();
+  } else return;
+}
+
+function doSearchBtn() {
+  doSearch();
+  render();
+}
+
+function doSearch() {
+  nameToSearch = searchInput.value;
+
+  allSearchedUsers = allUsers.filter((user) => {
+    return user.name.toLowerCase().indexOf(nameToSearch.trim()) > -1;
+  });
+
+  return nameToSearch;
+}
+
+function handleSearchBtn() {
   nameToSearch = searchInput.value;
 
   if (nameToSearch.length > 0) {
@@ -64,26 +72,6 @@ function doSearchInput(event) {
     allSearchedUsers = [];
     render();
   }
-
-  if (event.key === 'Enter' && isBtnActive) {
-    allSearchedUsers = allUsers.filter((user) => {
-      return user.fullName.indexOf(nameToSearch.trim()) > -1;
-    });
-
-    render();
-  } else {
-    return;
-  }
-}
-
-function doSearchBtn() {
-  nameToSearch = searchInput.value;
-
-  allSearchedUsers = allUsers.filter((user) => {
-    return user.fullName.indexOf(nameToSearch.trim()) > -1;
-  });
-
-  render();
 }
 
 function createUsersList(data) {
@@ -91,9 +79,7 @@ function createUsersList(data) {
     const { name, picture, dob, gender } = user;
 
     return {
-      name: name.first,
-      lastName: name.last,
-      fullName: `${name.first} ${name.last}`,
+      name: `${name.first} ${name.last}`,
       picture: picture.thumbnail,
       age: dob.age,
       gender,
@@ -113,7 +99,7 @@ function renderUsersList() {
   allSearchedUsers.forEach((user) => {
     let newUser = ` <li class='user'>
                       <img class='user-picture' src='${user.picture}'/>
-                      <p class='user-info'>${user.name} ${user.lastName}, ${user.age} anos</p>
+                      <p class='user-info'>${user.name}, ${user.age} anos</p>
                     </li>
                   `;
     usersList.innerHTML += newUser;
