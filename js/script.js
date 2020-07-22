@@ -108,7 +108,7 @@ function renderUsersList() {
   });
 
   if (allSearchedUsers.length === 0) {
-    usersList.textContent = '---';
+    usersList.textContent = 'Nenhum usuário filtrado.';
   }
 
   usersFound.textContent = allSearchedUsers.length;
@@ -119,7 +119,7 @@ function renderStatistics() {
   statistics.innerHTML = '';
 
   if (allSearchedUsers.length === 0) {
-    statistics.textContent = 'Sem dados para calcular as estatísticas.';
+    statistics.textContent = 'Nada a ser exibido.';
     return;
   }
 
