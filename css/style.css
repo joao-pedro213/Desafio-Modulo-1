@@ -32,6 +32,7 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-top: 30px;
   margin-bottom: 38px;
 }
 
@@ -67,6 +68,10 @@ input {
   margin-left: 15px;
 }
 
+.user-age {
+  color: #a9a9a9;
+}
+
 #users-found {
   font-size: 1.3rem;
   color: #4db6ac;
@@ -76,6 +81,12 @@ input {
 
 .subtitle {
   margin-bottom: 20px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .statistics {

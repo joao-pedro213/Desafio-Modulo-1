@@ -100,7 +100,8 @@ function renderUsersList() {
                         src='${user.picture}' 
                         alt='${user.name}'
                         title='${user.name}'/>
-                      <p class='user-info'>${user.name}, ${user.age} anos</p>
+                      <p class='user-info'>${user.name}, 
+                      <span class='user-age'>${user.age} anos</span></p>
                     </li>
                   `;
     usersList.innerHTML += newUser;
