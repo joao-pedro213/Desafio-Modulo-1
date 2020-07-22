@@ -45,6 +45,19 @@ input {
   background-color: #4db6ac;
 }
 
+/* progress bar */
+.prog {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 70px;
+}
+
+.prog-bar {
+  width: 200px;
+}
+
 /* users column */
 .users {
   padding: 15px;

@@ -3,6 +3,8 @@ let searchInput = null;
 let searchBtn = null;
 let usersFound = null;
 
+let progressionBar = null;
+
 let allUsers = [];
 let allSearchedUsers = [];
 
@@ -21,6 +23,8 @@ window.addEventListener('load', () => {
   searchBtn = document.querySelector('#search-btn');
   searchBtn.addEventListener('click', doSearchBtn);
 
+  progressionBar = document.querySelector('.prog');
+
   usersFound = document.querySelector('#users-found');
   usersFound.textContent = 0;
 
@@ -28,10 +32,22 @@ window.addEventListener('load', () => {
 });
 
 async function loadData() {
+  searchInput.setAttribute('readonly', true);
+
   try {
     const res = await fetch(
       'https://randomuser.me/api/?seed=javascript&results=100&nat=BR&noinfo'
     );
+
+    if (res.status === 200) {
+      console.log('Os dados termianram de carregar com sucesso.');
+      setTimeout(() => {
+        progressionBar.remove();
+        searchInput.removeAttribute('readonly');
+        searchInput.focus();
+      }, 3000);
+    }
+
     const json = await res.json();
     createUsersList(json);
   } catch (err) {
