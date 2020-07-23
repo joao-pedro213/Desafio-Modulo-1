@@ -70,9 +70,11 @@ function doSearchBtn() {
 }
 
 function doSearch() {
-  allSearchedUsers = allUsers.filter((user) => {
-    return user.name.toLowerCase().includes(searchInput.value.toLowerCase());
-  });
+  allSearchedUsers = allUsers
+    .filter((user) => {
+      return user.name.toLowerCase().includes(searchInput.value.toLowerCase());
+    })
+    .sort((a, b) => a.name.localeCompare(b.name));
 }
 
 function handleSearchBtn() {
