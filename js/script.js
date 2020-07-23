@@ -42,10 +42,10 @@ async function loadData() {
     if (res.status === 200) {
       console.log('Os dados termianram de carregar com sucesso.');
       setTimeout(() => {
-        progressionBar.remove();
+        progressionBar.classList.add('scale-transition', 'scale-out');
         searchInput.removeAttribute('readonly');
         searchInput.focus();
-      }, 3000);
+      }, 2000);
     }
 
     const json = await res.json();
