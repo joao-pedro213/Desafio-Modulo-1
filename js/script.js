@@ -55,10 +55,10 @@ async function loadData() {
   }
 }
 
-function doSearchInput(event) {
+function doSearchInput({ key }) {
   handleSearchBtn();
 
-  if (event.key === 'Enter' && isBtnActive) {
+  if (key === 'Enter' && isBtnActive) {
     doSearch();
     render();
   } else return;
@@ -70,11 +70,15 @@ function doSearchBtn() {
 }
 
 function doSearch() {
-  allSearchedUsers = allUsers
-    .filter((user) => {
-      return user.name.toLowerCase().includes(searchInput.value.toLowerCase());
-    })
-    .sort((a, b) => a.name.localeCompare(b.name));
+  allSearchedUsers = [
+    ...allUsers
+      .filter((user) => {
+        return user.name
+          .toLowerCase()
+          .includes(searchInput.value.toLowerCase());
+      })
+      .sort((a, b) => a.name.localeCompare(b.name)),
+  ];
 }
 
 function handleSearchBtn() {
