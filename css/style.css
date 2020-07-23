@@ -122,3 +122,16 @@ input {
   margin-right: 30px;
   color: #4db6ac;
 }
+
+/* footer */
+.footer {
+  margin-top: 40px;
+}
+
+.footer-text {
+  color: #4db6ac;
+}
+
+.footer-name {
+  color: #a9a9a9;
+}
